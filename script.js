@@ -2,7 +2,7 @@
 
 const gameBoard = (() => {
    let gameboard = [null,null,null,null,null,null,null,null,null];
-   
+   let turn = true;
 
    const boardRender = (() => {
       const init = () => {
@@ -56,18 +56,19 @@ const gameBoard = (() => {
          setTimeout(function() {
             message.innerText = "Player 1's Turn!"
          },1400);
-         message.innerText = "Game Restarted";   
+         message.innerText = "Game Restarted";
+         turn = true; 
       }
       const resetButton = document.getElementById('reset-button');
       resetButton.addEventListener('click', resetGame);
 
-      return { messageCont }
+      return { messageCont, resetGame, }
    })();
 
 
    // GAME CONTROLLER
    const GameController = (() => {
-      let turn = true;
+      
       const gameBoxArray = document.getElementsByClassName('game-box');
       const play = () => {
          for(let i = 0; i < gameBoxArray.length; i++){
@@ -101,6 +102,7 @@ const gameBoard = (() => {
              gameboard[2] == 'X' && gameboard[4] == 'X' && gameboard[6] == 'X'){
                console.log("Player 1 Wins");
                DisplayController.messageCont(player1.getName());
+               setTimeout(DisplayController.resetGame, 1100);
          } else if ( gameboard[0] == 'O' && gameboard[1] == 'O' && gameboard[2] == 'O' ||
                      gameboard[0] == 'O' && gameboard[3] == 'O' && gameboard[6] == 'O' ||
                      gameboard[0] == 'O' && gameboard[4] == 'O' && gameboard[8] == 'O' ||
@@ -109,15 +111,16 @@ const gameBoard = (() => {
                      gameboard[3] == 'O' && gameboard[4] == 'O' && gameboard[5] == 'O' ||
                      gameboard[6] == 'O' && gameboard[7] == 'O' && gameboard[8] == 'O' ||
                      gameboard[2] == 'O' && gameboard[4] == 'O' && gameboard[6] == 'O'){
-                         console.log('Player 2 Wins');
+                        console.log('Player 2 Wins');
                         DisplayController.messageCont(player2.getName());
+                        setTimeout(DisplayController.resetGame, 1100);
                      }
          else if (!gameboard.includes(null)) {
             console.log("It's a tie!")
             message.innerText = "It's a tie!";
+            setTimeout(DisplayController.resetGame, 1100);
          }
      }
-
    })();
 
 
