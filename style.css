@@ -1,0 +1,113 @@
+* {
+   background-color: #f3f4ed;
+   font-family: 'Roboto', sans-serif;
+   margin: 0;
+}
+
+/* HEADER */
+
+#header {
+   background-color: #536162;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   width: auto;
+   height: 120px;
+   text-align: center;
+}
+
+#header h1 {
+   color: #c06014;
+   background-color: #f3f4ed;
+   border-radius: 5px;
+   padding: 15px 0;
+   font-size: 2.3rem;
+   font-weight: 700;
+   width: 35%;
+}
+
+/* MAIN */
+
+main{
+   display: flex;
+   justify-content: center;
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   width: 950px;
+   height: 550px;
+   background-color: #536162;
+   border-radius: 5px;
+   margin-top: 50px;
+}
+
+#message {
+   border-radius: 5px;
+   color: #c06014;
+   font-size: 2rem;
+   margin-bottom: 2.4rem;
+   padding: 0.3rem 0.9rem;
+}
+
+#game-board {
+   display: grid;
+   grid-template-columns: repeat(3, auto);
+   grid-template-rows: repeat(3, auto);
+   background-color: #424642;
+   border-radius: 5px;
+   width: 350px;
+   height: 350px;
+}
+
+.game-box {
+   background-color: #424642;
+   border: 2px solid #c06014;
+   border-radius: 5px;
+   color: #f3f4ed;
+   cursor: pointer;
+   display: flex;
+   height: 114px;
+   width: 114px;
+   font-family: sans-serif;
+   justify-content: center;
+   align-items: center;
+   font-size: 36px;
+   font-weight: 700;
+}
+
+.game-box:hover{
+   transition: all 0.9s ease;
+   background-color: #f3f4ed;
+   color: #424642;
+}
+
+#reset-button {
+   background-color: #424642;
+   border-color: #c06014;
+   border-radius: 5px;
+   color: #c06014;
+   cursor: pointer;
+   font-size: 1.2rem;
+   margin-top: 1rem;
+   padding: 0.4rem;
+}
+
+#reset-button:hover {
+   background-color: #f3f4ed;
+   color: #c06014;
+   transition: all 0.9s ease;
+}
+
+/* CLEAR EXTRA BORDERS */
+.game-box:nth-child(3), .game-box:nth-child(6), .game-box:nth-child(9){
+   border-right: none;
+}
+
+.game-box:nth-child(1), .game-box:nth-child(4), .game-box:nth-child(7){
+   border-left: none;
+}
